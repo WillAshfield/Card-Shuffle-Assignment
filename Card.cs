@@ -50,10 +50,10 @@ namespace CMP1903M_A01_2223
         {
             var suitName = Suit switch
             {
-                1 => "Heart",
-                2 => "Club",
-                3 => "Diamond",
-                _ => "Spade"
+                1 => " Heart",
+                2 => " Club",
+                3 => " Diamond",
+                _ => " Spade"
             };
 
             var cardName = Value switch
