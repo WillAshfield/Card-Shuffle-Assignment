@@ -1,4 +1,5 @@
 ﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace CMP1903M_A01_2223
             var pack = new Pack();
             int numShuffle = 0;
             int numDeal = 0;
-            try
+            try //First asks the user which kind of shuffle they would like to use, Then reads the line the user writes and stores it as a variable for later use
             {
                 Console.WriteLine("Which shuffle would you like to do? (1) Fisher-Yates // (2) Riffle  // (3) No Shuffle ");
                 numShuffle = int.Parse(Console.ReadLine());
@@ -26,7 +27,7 @@ namespace CMP1903M_A01_2223
             }
             bool shuffled = Pack.shuffleCardPack(numShuffle, pack.deck);
 
-            try
+            try //After shuffling, the user can either deal one card or deal multiple cards, reads the line the user writes and stores it as a variable for later use
             {
                 Console.WriteLine("Would you like to (1) Deal one card or (2) Deal multiple cards");
                 numDeal = int.Parse(Console.ReadLine());
@@ -44,11 +45,15 @@ namespace CMP1903M_A01_2223
             }
             else if (numDeal == 2)
             {
+                int amount = 100
                 Console.WriteLine("How many cards would you like to deal");
-                int amount = int.Parse(Console.ReadLine());
+                while (amount > 52) //This catches an error of if the user inputs a number greater than the total number of cards in the deck
+                {
+                    amount = int.Parse(Console.ReadLine());
+                }
                 List<Card> dealtCards = Pack.dealCards(amount, pack.deck);
                 Console.WriteLine("Your cards are: ");
-                for (int i = 0; i < dealtCards.Count; i++)
+                for (int i = 0; i < dealtCards.Count; i++) //Goes through all the cards that were dealt and displays them in the console.
                 {
                     Console.WriteLine(dealtCards[i].Description());
                 }
