@@ -48,7 +48,7 @@ namespace CMP1903M_A01_2223
 
         public string Description()
         {
-            var suitName = Suit switch
+            var suitName = Suit switch //Maps the number given to each card to each of the suits on cards
             {
                 1 => " Heart",
                 2 => " Club",
@@ -56,7 +56,7 @@ namespace CMP1903M_A01_2223
                 _ => " Spade"
             };
 
-            var cardName = Value switch
+            var cardName = Value switch //In cases where the number should be a picture card, this maps the number to the corresponding letter
             {
                 1 => "A",
                 10 => "J",
