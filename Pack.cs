@@ -17,13 +17,13 @@ namespace CMP1903M_A01_2223
 
             for (var suit = 1; suit <= 4; suit++)
             {
-                for (var value = 1; value <= 13; value++)
+                for (var value = 1; value <= 13; value++) //Use 2 for loops to go through each number and suit and make one instance of each card.
                 {
                     deck.Add(new Card { Suit = suit, Value = value });
                 }
             }
 
-            deck = (from suit in Enumerable.Range(1, 4)
+            deck = (from suit in Enumerable.Range(1, 4) //Maps the Named Suits to the number suits and matches the Picture cards to the numbers that match.
                     from card in Enumerable.Range(1, 13)
                     select new Card { Suit = suit, Value = card }).ToList();
 
